@@ -1,0 +1,22 @@
+<app-header />
+
+<main>
+  <ul id="users">
+    <li>
+      <app-user [user]="users[0]" (select)="onSelectedUser($event)" />
+    </li>
+    <li>
+      <app-user [user]="users[1]" (select)="onSelectedUser($event)" />
+    </li>
+    <li>
+      <app-user [user]="users[2]" (select)="onSelectedUser($event)" />
+    </li>
+    <li>
+      <app-user [user]="users[3]" (select)="onSelectedUser($event)" />
+    </li>
+    <li>
+      <app-user [user]="users[4]" (select)="onSelectedUser($event)" />
+    </li>
+  </ul>
+  <app-tasks [name]="selectedUser ? selectedUser.name : ''"></app-tasks>
+</main>
