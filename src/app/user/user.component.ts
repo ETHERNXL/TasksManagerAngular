@@ -1,37 +1,17 @@
-import {
-  Component,
-  Input,
-  Output,
-  input,
-  computed,
-  EventEmitter,
-  output,
-} from '@angular/core';
-
-type User = {
-  id: string;
-  name: string;
-  avatar: string;
-};
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { User } from './user.model';
+import { CardComponent } from "../shared/card/card.component";
 
 @Component({
-  selector: 'app-user',
-  standalone: true,
-  imports: [],
-  templateUrl: './user.component.html',
-  styleUrl: './user.component.css',
+    selector: 'app-user',
+    standalone: true,
+    templateUrl: './user.component.html',
+    styleUrl: './user.component.css',
+    imports: [CardComponent]
 })
 export class UserComponent {
   @Input({ required: true }) user!: User;
-
-  // avatar = input.required<string>();
-  // name = input.required<string>();
-
-  // imagePath = computed(() => {
-  //   return `assets/users/${this.avatar()}`;
-  // });
-
-  // select = output<string>();
+  @Input({ required: true }) selected!: boolean;
 
   @Output() select = new EventEmitter<string>();
 
